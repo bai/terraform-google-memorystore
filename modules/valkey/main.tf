@@ -21,7 +21,7 @@ resource "google_memorystore_instance" "valkey_cluster" {
   engine_version = var.engine_version
   mode           = var.mode
 
-  desired_psc_auto_connections {
+  desired_auto_created_endpoints {
     network    = "projects/${coalesce(var.network_project, var.project_id)}/global/networks/${var.network}"
     project_id = var.project_id
   }
@@ -74,7 +74,7 @@ resource "google_memorystore_instance" "valkey_cluster" {
   dynamic "gcs_source" {
     for_each = var.gcs_source != null ? ["gcs_source"] : []
     content {
-      uris = var.gcs_source
+      uris = split(",", var.gcs_source)
     }
   }
 
