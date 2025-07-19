@@ -24,10 +24,10 @@ output "id" {
 #   value       = google_memorystore_instance.valkey_cluster.discovery_endpoints
 # }
 
-output "psc_connections" {
-  description = "(Deprecated) PSC connections for discovery of the cluster topology and accessing the cluster. Use psc_auto_connection instead"
-  value       = google_memorystore_instance.valkey_cluster.psc_auto_connections
-}
+# output "psc_connections" {
+#   description = "(Deprecated) PSC connections for discovery of the cluster topology and accessing the cluster. Use psc_auto_connection instead"
+#   value       = google_memorystore_instance.valkey_cluster.psc_auto_connections
+# }
 
 output "valkey_cluster" {
   description = "The valkey cluster created"
